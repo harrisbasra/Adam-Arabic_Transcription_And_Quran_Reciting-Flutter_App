@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen.withScreenFunction(
       splash: Center(
-        child: Container(child:Image.asset('assets/images/img.png'), )
+        child: Container(height: 1000, width: 1000, color: Colors.black, child:Image.asset('assets/images/img.png'), )
 
       ),
       screenFunction: () async {

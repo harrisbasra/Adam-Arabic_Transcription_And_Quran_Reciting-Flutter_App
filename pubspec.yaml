@@ -18,6 +18,8 @@ dependencies:
   pinput: ^2.2.31
   shared_preferences: ^2.2.0
   firebase_database: ^10.2.3
+  flutter_colorpicker: ^1.0.3
+  siri_wave: ^1.0.1
 
 
 dev_dependencies:
