@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "603248941877",
+    "project_id": "netikash-live",
+    "storage_bucket": "netikash-live.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603248941877:android:3e89ac763243f200088a7c",
+        "android_client_info": {
+          "package_name": "com.adam.quran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603248941877-8rfj8vjgu2c5t2vonn59rt5usmnb89qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChSUzO6PZNgCsCcO_L3247vReOADB_jwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603248941877-8rfj8vjgu2c5t2vonn59rt5usmnb89qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
