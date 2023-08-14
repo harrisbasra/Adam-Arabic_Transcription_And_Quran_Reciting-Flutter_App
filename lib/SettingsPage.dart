@@ -27,19 +27,77 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        elevation: 0,
+        leading: Container(),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.black,Colors.black,Colors.black,Colors.black,],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(0),
+              bottomRight: Radius.circular(0),
+            ),
+          ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  Expanded(child: SizedBox(height: 10,)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.arrow_back_ios_new, color: Colors.white,),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      Text(
+                        'Settings',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: 'UberMove', color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      SizedBox(width: 40), // Adjust the width as needed
+                    ],
+                  ),
+                  SizedBox(height: 5,)
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
-      body: ListView(
-        padding: EdgeInsets.all(16.0),
-        children: [
-          _buildNotificationSettingsSection(),
-          SizedBox(height: 16.0),
-          _buildIntegrationSection(),
-          SizedBox(height: 16.0),
-          _buildDarkModeSwitch(),
-          SizedBox(height: 32.0),
-          _buildSaveButton(),
-        ],
+      body: Container(
+        color: Colors.black,
+        child: Column(
+          children: [
+            Divider(color: Colors.white,),
+            SizedBox(height: 30,),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: _buildNotificationSettingsSection(),
+            ),
+            SizedBox(height: 16.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: _buildIntegrationSection(),
+            ),
+            SizedBox(height: 16.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: _buildDarkModeSwitch(),
+            ),
+            Expanded(child: SizedBox(height: 32.0)),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: _buildSaveButton(),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -50,9 +108,10 @@ class _SettingsPageState extends State<SettingsPage> {
       children: [
         const Text(
           'Notification Settings',
-          style: TextStyle(
+          style: TextStyle(fontFamily: 'UberMove',
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
+            color: Colors.white
           ),
         ),
         SizedBox(height: 8.0),
@@ -60,19 +119,20 @@ class _SettingsPageState extends State<SettingsPage> {
           value: 0,
           groupValue: _notificationOption,
           onChanged: (int? value) {  },
-          title: Text('Get Phone Notifications'),
+
+          title: Text('Get Phone Notifications', style: TextStyle(color: Colors.white),),
         ),
         RadioListTile<int>(
           value: 1,
           groupValue: _notificationOption,
           onChanged: (int? value) {  },
-          title: Text('Get Email Notifications'),
+          title: Text('Get Email Notifications', style: TextStyle(color: Colors.white),),
         ),
         RadioListTile<int>(
           value: 2,
           groupValue: _notificationOption,
           onChanged: (int? value) {  },
-          title: Text('Don\'t receive Notifications'),
+          title: Text('Don\'t receive Notifications', style: TextStyle(color: Colors.white),),
         ),
       ],
     );
@@ -84,20 +144,37 @@ class _SettingsPageState extends State<SettingsPage> {
       children: [
         SizedBox(height: 20,),
         Text(
-          'Integration',
-          style: TextStyle(
+          'Subscribe To Content',
+          style: TextStyle(fontFamily: 'UberMove',
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
+            color: Colors.white
           ),
         ),
-        SizedBox(height: 8.0),
+        SizedBox(height: 20),
         Center(
-          child: ElevatedButton(
-            onPressed: () {
-              // Handle the integration button click here
-              // e.g., integrate camera functionality
+          child:  ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Color.fromRGBO(10, 77, 104, 1),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              minimumSize: Size(double.infinity, 45),
+            ),
+            onPressed: (){
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => QuranLandPage()),
+              // );
             },
-            child: Text('Click here to integrate Camera'),
+            child: Text(
+              'Click Here to View Paid Content',
+              style: TextStyle(fontFamily: 'UberMove',
+                color: Color.fromRGBO(0, 255, 202, 1),
+                fontSize: 16.0,
+              ),
+            ),
           ),
         ),
       ],
@@ -113,9 +190,10 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
             Text(
               'Dark Mode',
-              style: TextStyle(
+              style: TextStyle(fontFamily: 'UberMove',
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
+                color: Colors.white
               ),
             ),
             Switch(
@@ -130,11 +208,31 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _buildSaveButton() {
-    return ElevatedButton(
-      onPressed: () {
-        // Save settings logic goes here
-      },
-      child: Text('Save'),
+    return  Padding(
+      padding: const EdgeInsets.only(top: 8.0, left: 20, right: 20, bottom: 20),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: Color.fromRGBO(10, 77, 104, 1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          minimumSize: Size(double.infinity, 45),
+        ),
+        onPressed: (){
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => QuranLandPage()),
+          // );
+        },
+        child: Text(
+          'Save Settings',
+          style: TextStyle(fontFamily: 'UberMove',
+            color: Color.fromRGBO(0, 255, 202, 1),
+            fontSize: 16.0,
+          ),
+        ),
+      ),
     );
   }
 }

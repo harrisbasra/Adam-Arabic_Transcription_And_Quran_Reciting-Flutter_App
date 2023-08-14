@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test/search_bar024.dart';
+import 'package:test/user_enters.dart';
 
+import 'Profile_View.dart';
 import 'SettingsPage.dart';
 
 class QuranLandPage extends StatefulWidget {
@@ -36,6 +39,7 @@ class _QuranLandPageState extends State<QuranLandPage> {
               ),
             ),
           ),
+
           Align(
             alignment: Alignment.center,
             child: Column(
@@ -50,7 +54,7 @@ class _QuranLandPageState extends State<QuranLandPage> {
                     padding: const EdgeInsets.only(left: 25, top: 25,),
                     child: InkWell(
                       onTap: (){
-                        // Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile_View()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile_View()));
                       },
                       child: CircleAvatar(
                         backgroundImage: AssetImage('assets/images/user.png'),
@@ -83,6 +87,42 @@ class _QuranLandPageState extends State<QuranLandPage> {
                   ],
                 ), // Adjust this height as needed
                 Expanded(child: SizedBox(height: 20)),
+                Text(
+                  "Recent Searches",
+                  style: TextStyle(
+                    fontFamily: 'UberMove',
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white, // Text color
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: SingleChildScrollView(
+                      child: Container(
+                        height: 270,
+                        color: Color.fromRGBO(255, 255, 255, 0.1), // Light gray color
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              SearchCards(
+                                  name: "Search 1",),
+                              SearchCards(
+                                  name: "Search 2",),
+                              SearchCards(
+                                  name: "Search 3",),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(child: SizedBox(height: 20)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -102,13 +142,21 @@ class _QuranLandPageState extends State<QuranLandPage> {
                             ),
                           ],
                         ),
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.grey.shade700,
-                          child: Icon(
-                            Icons.bookmark,
-                            color: Colors.red,
-                            size: 30,
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Saved_View()),
+                            );
+                          },
+                          child: CircleAvatar(
+                            radius: 30,
+                            backgroundColor: Colors.grey.shade700,
+                            child: Icon(
+                              Icons.bookmark,
+                              color: Colors.red,
+                              size: 30,
+                            ),
                           ),
                         ),
                       ),
@@ -149,13 +197,21 @@ class _QuranLandPageState extends State<QuranLandPage> {
                             ),
                           ],
                         ),
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.grey.shade700,
-                          child: Icon(
-                            Icons.search,
-                            color: Colors.green,
-                            size: 30,
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => search_bar024()),
+                            );
+                          },
+                          child: CircleAvatar(
+                            radius: 30,
+                            backgroundColor: Colors.grey.shade700,
+                            child: Icon(
+                              Icons.search,
+                              color: Colors.green,
+                              size: 30,
+                            ),
                           ),
                         ),
                       ),
@@ -197,6 +253,54 @@ class _QuranLandPageState extends State<QuranLandPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class SearchCards extends StatelessWidget {
+  final String name;
+
+  SearchCards({
+    required this.name,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Card(
+          elevation: 10,
+          color: Colors.grey[800], // Dark gray color
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Text(
+                        name,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'UberMove',
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white, // Text color
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 10),
+      ],
     );
   }
 }

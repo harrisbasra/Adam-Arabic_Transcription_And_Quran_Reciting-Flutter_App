@@ -7,12 +7,7 @@ class Profile_View extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-        Image.asset(
-        'assets/images/shave_background.png', // Background image path
-        fit: BoxFit.cover,
-        width: double.infinity,
-        height: double.infinity,
-      ),
+        Container(height: 1000, width: 1000, color: Colors.black,),
       Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,7 +38,7 @@ class Profile_View extends StatelessWidget {
                       text: 'Hello, ',
                       style: TextStyle(fontFamily: 'UberMove',
                         fontSize: 25,
-                        color: Color.fromRGBO(10, 78, 105, 1),
+                        color: Color.fromRGBO(98, 182, 213, 1),
                         fontWeight: FontWeight.bold,
                       ),
                       children: <TextSpan>[
@@ -83,9 +78,9 @@ class Profile_View extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: Text(
-                      "250 Ratings",
+                      "250 Searches",
                       style: TextStyle(fontFamily: 'UberMove',
-                        color: Color.fromRGBO(10, 77, 104, 1.0),
+                        color: Color.fromRGBO(98, 182, 213, 1.0),
                         fontSize: 18,
                         fontWeight: FontWeight.w300,
                       ),
@@ -98,7 +93,7 @@ class Profile_View extends StatelessWidget {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Color.fromRGBO(10, 77, 104, 1), width: 1),
+                        border: Border.all(color: Color.fromRGBO(98, 182, 213, 1), width: 1),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Padding(
@@ -107,11 +102,11 @@ class Profile_View extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.edit, color: Color.fromRGBO(10, 77, 104, 1)),
+                              Icon(Icons.edit, color: Color.fromRGBO(98, 182, 213, 1)),
                               SizedBox(width: 5),
                               Text(
                                 "Edit Profile",
-                                style: TextStyle(fontFamily: 'UberMove',color: Color.fromRGBO(10, 77, 104, 1)),
+                                style: TextStyle(fontFamily: 'UberMove',color: Color.fromRGBO(98, 182, 213, 1)),
                               ),
                             ],
                           ),
@@ -124,19 +119,135 @@ class Profile_View extends StatelessWidget {
           ),
               ),
             ),
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  Icon(Icons.nature, color: Color.fromRGBO(98, 182, 213, 1.0)),
+                  SizedBox(width: 10),
+                  Text(
+                    "First Name",
+                    style: TextStyle(fontFamily: 'UberMove',
+                      color: Color.fromRGBO(98, 182, 213, 1.0),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Flexible(
+                  child: Text(
+                    "Laula Bates",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(fontFamily: 'UberMove',color: Colors.white, fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  Icon(Icons.drive_eta, color: Color.fromRGBO(98, 182, 213, 1.0)),
+                  SizedBox(width: 10),
+                  Text(
+                    "Last Name",
+                    style: TextStyle(fontFamily: 'UberMove',
+                      color: Color.fromRGBO(98, 182, 213, 1.0),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Washington Jones",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(fontFamily: 'UberMove',color: Colors.white, fontSize: 20),
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            Row(children: [
+              Column(children: [Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      "Age",
+                      style: TextStyle(fontFamily: 'UberMove',
+                        color: Color.fromRGBO(98, 182, 213, 1.0),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+                SizedBox(height: 5),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    "30",
+                    style: TextStyle(fontFamily: 'UberMove',color: Colors.white, fontSize: 20),
+                  ),
+                ),
+              ],
+              ),
 
 
+              SizedBox(width: 70),
+
+              Column(
+                children: [Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Gender",
+                        style: TextStyle(fontFamily: 'UberMove',
+                          color: Color.fromRGBO(98, 182, 213, 1.0),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                  SizedBox(height: 5),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text(
+                      "Male",
+                      style: TextStyle(fontFamily: 'UberMove',color: Colors.white, fontSize: 20),
+                    ),
+                  ),],),
+            ],),
             SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Row(
                 children: [
-                  Icon(Icons.email_outlined, color: Color.fromRGBO(10, 77, 104, 1.0)),
+                  Icon(Icons.email_outlined, color: Color.fromRGBO(98, 182, 213, 1.0)),
                   SizedBox(width: 10),
                   Text(
                     "\tEmail",
                     style: TextStyle(fontFamily: 'UberMove',
-                      color: Color.fromRGBO(10, 77, 104, 1.0),
+                      color: Color.fromRGBO(98, 182, 213, 1.0),
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
@@ -153,7 +264,7 @@ class Profile_View extends StatelessWidget {
                 child: Text(
                   "example@example.com",
                   textAlign: TextAlign.start,
-                  style: TextStyle(fontFamily: 'UberMove',color: Colors.black, fontSize: 20),
+                  style: TextStyle(fontFamily: 'UberMove',color: Colors.white, fontSize: 20),
                 ),
               ),
             ),
@@ -162,12 +273,12 @@ class Profile_View extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20),
               child: Row(
                 children: [
-                  Icon(Icons.phone_iphone, color: Color.fromRGBO(10, 77, 104, 1.0)),
+                  Icon(Icons.phone_iphone, color: Color.fromRGBO(98, 182, 213, 1.0)),
                   SizedBox(width: 10),
                   Text(
                     "\tPhone Number",
                     style: TextStyle(fontFamily: 'UberMove',
-                      color: Color.fromRGBO(10, 77, 104, 1.0),
+                      color: Color.fromRGBO(98, 182, 213, 1.0),
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
@@ -183,125 +294,7 @@ class Profile_View extends StatelessWidget {
                 child: Text(
                   "65465465461",
                   textAlign: TextAlign.start,
-                  style: TextStyle(fontFamily: 'UberMove',color: Colors.black, fontSize: 20),
-                ),
-              ),
-            ),
-            SizedBox(height: 30),
-            Row(children: [
-              Column(children: [Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      "Age",
-                      style: TextStyle(fontFamily: 'UberMove',
-                        color: Color.fromRGBO(10, 77, 104, 1.0),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-                SizedBox(height: 5),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Text(
-                    "30",
-                    style: TextStyle(fontFamily: 'UberMove',color: Colors.black, fontSize: 20),
-                  ),
-                ),
-              ],
-              ),
-
-              
-              SizedBox(width: 70),
-
-              Column(
-                children: [Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      "Gender",
-                      style: TextStyle(fontFamily: 'UberMove',
-                        color: Color.fromRGBO(10, 77, 104, 1.0),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-                SizedBox(height: 5),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Text(
-                    "Male",
-                    style: TextStyle(fontFamily: 'UberMove',color: Colors.black, fontSize: 20),
-                  ),
-                ),],),
-            ],),
-            SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Row(
-                children: [
-                  Icon(Icons.location_searching_rounded, color: Color.fromRGBO(10, 77, 104, 1.0)),
-                  SizedBox(width: 10),
-                  Text(
-                    "Address",
-                    style: TextStyle(fontFamily: 'UberMove',
-                      color: Color.fromRGBO(10, 77, 104, 1.0),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 5),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Flexible(
-                  child: Text(
-                    "4517 Washington Ave. Manchester, Kentucky 39495",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(fontFamily: 'UberMove',color: Colors.black, fontSize: 20),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Row(
-                children: [
-                  Icon(Icons.drive_eta, color: Color.fromRGBO(10, 77, 104, 1.0)),
-                  SizedBox(width: 10),
-                  Text(
-                    "Type of Car",
-                    style: TextStyle(fontFamily: 'UberMove',
-                      color: Color.fromRGBO(10, 77, 104, 1.0),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 5),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Luxury Sedan",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontFamily: 'UberMove',color: Colors.black, fontSize: 20),
+                  style: TextStyle(fontFamily: 'UberMove',color: Colors.white, fontSize: 20),
                 ),
               ),
             ),
