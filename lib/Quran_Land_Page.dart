@@ -39,13 +39,28 @@ class _QuranLandPageState extends State<QuranLandPage> {
               ),
             ),
           ),
-
+          Positioned(
+            top: 60,
+            right: 60,
+            child: InkWell(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Saved_View()),
+                );
+              },
+              child: Icon(
+                Icons.library_music_outlined,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+          ),
           Align(
             alignment: Alignment.center,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
               children: [
                 SizedBox(height: 20,),
                 Row(
@@ -85,222 +100,57 @@ class _QuranLandPageState extends State<QuranLandPage> {
                       ),
                     ),
                   ],
-                ), // Adjust this height as needed
-                Expanded(child: SizedBox(height: 20)),
-                Text(
-                  "Recent Searches",
-                  style: TextStyle(
-                    fontFamily: 'UberMove',
-                    fontSize: 25,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white, // Text color
-                  ),
                 ),
-                SizedBox(height: 10,),
+                Expanded(child: SizedBox(height: 20)),
                 Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: SingleChildScrollView(
-                      child: Container(
-                        height: 270,
-                        color: Color.fromRGBO(255, 255, 255, 0.1), // Light gray color
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              SearchCards(
-                                  name: "Search 1",),
-                              SearchCards(
-                                  name: "Search 2",),
-                              SearchCards(
-                                  name: "Search 3",),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(child: SizedBox(height: 20)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40),
-                      child: Container(
-                        width: 40, // Adjust size as needed
-                        height: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade700,
-                              blurRadius: 10,
-                              spreadRadius: 10,
-                              offset: Offset(0, 0),
-                            ),
-                          ],
-                        ),
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Saved_View()),
-                            );
-                          },
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.grey.shade700,
-                            child: Icon(
-                              Icons.bookmark,
-                              color: Colors.red,
-                              size: 30,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 20,),
-                    Container(
-                      width: 90, // Adjust size as needed
-                      height: 90,
+                  padding: const EdgeInsets.all(30),
+                  child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
+                        shape: BoxShape.circle,
+                        color: Color.fromRGBO(139, 139, 23, 1),
                         border: Border.all(
                           color: Colors.white,
-                          width: 4
-                        ),
-                        gradient: RadialGradient(
-                          colors: [Colors.yellow, Colors.yellow, Colors.yellow, Colors.white70, Colors.black],
-                        ),
+
+                        )
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0, top: 10),
-                        child: Image.asset('assets/images/microphone.gif', width: 60, height: 60,),
-                      ),
-                    ),
-                    SizedBox(width: 20,),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40),
-                      child: Container(
-                        width: 40, // Adjust size as needed
-                        height: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade700,
-                              blurRadius: 10,
-                              spreadRadius: 10,
-                              offset: Offset(0, 0),
-                            ),
-                          ],
-                        ),
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => search_bar024()),
-                            );
-                          },
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.grey.shade700,
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.green,
-                              size: 30,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                      child: Image.asset('assets/images/img.png', )
+                  ),
                 ),
-                SizedBox(height: 20,),
+                Expanded(child: SizedBox(height: 20)),
                 Padding(
                   padding: const EdgeInsets.only(left: 50, right: 50),
                   child: Container(
-                    height: 50,
+                    height: 60,
+                    width: 60,
                     decoration:BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      shape: BoxShape.circle,
                       border: Border.all(
                         color: Colors.grey.shade400
                       ),
-                      color: Colors.black54,
+                      color: Color.fromRGBO(139, 139, 23, 1),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                        Icon(Icons.multitrack_audio, color: Colors.white,),
-                      ],
-                    ),
+                    child: InkWell(
+                        onTap: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => search_bar024()
+                              )
+                          );
+                        },
+                        child: Icon(
+                          Icons.search,
+                          color: Color.fromRGBO(255, 254, 2, 1),
+                        )
+                    )
                   ),
                 ),
-                SizedBox(height: 50,),
+                SizedBox(height: 150,),
               ],
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class SearchCards extends StatelessWidget {
-  final String name;
-
-  SearchCards({
-    required this.name,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Card(
-          elevation: 10,
-          color: Colors.grey[800], // Dark gray color
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Text(
-                        name,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'UberMove',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white, // Text color
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(height: 10),
-      ],
     );
   }
 }

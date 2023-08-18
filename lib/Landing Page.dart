@@ -15,10 +15,10 @@ class Landing_Page extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage("assets/images/background.png"),
             fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              Colors.black.withOpacity(0.5),
-              BlendMode.darken,
-            ),
+            // colorFilter: ColorFilter.mode(
+            //   Colors.black.withOpacity(0.5),
+            //   BlendMode.darken,
+            // ),
           ),
         ),
         padding: EdgeInsets.symmetric(horizontal: 20),
