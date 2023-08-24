@@ -1,11 +1,71 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:test/Party_Land_Page.dart';
 import 'package:test/Quran_Land_Page.dart';
 import 'package:test/Sign_Up.dart';
 
+class Landing_Page extends StatefulWidget {
+  @override
+  _Landing_PageState createState() => _Landing_PageState();
+}
 
-class Landing_Page extends StatelessWidget {
+
+class _Landing_PageState extends State<Landing_Page> {
   bool _isChecked = true;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  Future<void> signIn() async {
+    final usersRef = FirebaseFirestore.instance.collection('users');
+    QuerySnapshot snapshot = await usersRef.where('email', isEqualTo: emailController.text).get();
+
+    if (snapshot.docs.isNotEmpty) {
+      final user = snapshot.docs[0];
+      if (user['password'] == passwordController.text) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => QuranLandPage()),
+        );
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text('Invalid password. Please try again.'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } else {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content: Text('Email not found.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +95,7 @@ class Landing_Page extends StatelessWidget {
             Expanded(child: SizedBox(height: 20)),
             TextField(
               onTap: () {},
+              controller: emailController,
               style: TextStyle(fontFamily: 'UberMove',color: Colors.black),
               decoration: InputDecoration(
                 hintText: 'Enter Email',
@@ -54,6 +115,7 @@ class Landing_Page extends StatelessWidget {
             SizedBox(height: 10),
             TextField(
               onTap: () {},
+              controller: passwordController,
               style: TextStyle(fontFamily: 'UberMove',color: Colors.black),
               obscureText: true,
               decoration: InputDecoration(
@@ -75,6 +137,7 @@ class Landing_Page extends StatelessWidget {
             SizedBox(height: 10),
             Row(
               children: [
+
                 Checkbox(value: _isChecked, onChanged: (bool){
                     _isChecked = true;
                 },
@@ -86,13 +149,6 @@ class Landing_Page extends StatelessWidget {
                   style: TextStyle(fontFamily: 'UberMove',color: Colors.white,), // Set text color to white
                 ),
                 Spacer(),
-                TextButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(Colors.white), // Set text color to white
-                  ),
-                  child: Text("Forgot Password?", style: TextStyle(fontFamily: 'UberMove',),),
-                ),
               ],
             ),
             Expanded(child: SizedBox(height: 20)),
@@ -106,10 +162,7 @@ class Landing_Page extends StatelessWidget {
                 minimumSize: Size(double.infinity, 45),
               ),
               onPressed: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => QuranLandPage()),
-                );
+                signIn();
               },
               child: Text(
                 'LOGIN',
